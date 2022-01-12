@@ -40,7 +40,7 @@ import {
 } from "../../styles/template";
 import Shop from "../Shop";
 
-const Guajolotadetail = () => {
+const Bebidadetail = () => {
   const productos = useSelector((state) => state.listar.productos);
   const { id } = useParams();
   console.log(id);
@@ -140,4 +140,4 @@ const Guajolotadetail = () => {
   );
 };
 
-export default Guajolotadetail;
+export default Bebidadetail;

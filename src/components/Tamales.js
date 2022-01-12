@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { Divprecioynombre, Divtarjetaindividual, Divtarjetas, Imgtarjeta, Nombreproducto, Precioproducto } from '../styles/template'
 import Banner from './Banner'
 import { Navbar } from './Navbar'
@@ -11,7 +12,11 @@ const Tamales = () => {
     console.log(productos)
 
 
-    
+    const navigate = useNavigate()
+
+    const redirectDetail = (id) => {
+        navigate(`/tamales/${id}`)
+    }
     
     const productotamales = productos.filter((producto) => {
         return producto.categoria === "tamales"
@@ -28,7 +33,7 @@ const Tamales = () => {
             <Divtarjetas>
                 {
                     productotamales && productotamales.map((producto) => (
-                        <Divtarjetaindividual>
+                        <Divtarjetaindividual key={producto.id} onClick={() => redirectDetail(producto.id)}>
                             <Imgtarjeta src={producto.imagen}/>
                             <Divprecioynombre>
                                 <Nombreproducto>{producto.nombre}</Nombreproducto>
